@@ -8,6 +8,7 @@ class AddressBook:
     def addNewContact(self):
 
         contacts = []
+        #UC5: Add multiple person to address book
         numContact = int(input("Enter the number of contacts you would like to store: "))
         for i in range(numContact):
             print(f"Enter the below details for contact {i+1}: ")
@@ -35,7 +36,6 @@ class AddressBook:
         for contact in contacts:
             if contact.fullname == editname:
                 found = True
-                #print(f"----{contact.fullname}----{editname}----")
                 print("Enter new details of the contact:\n")
                 newfirstname = input("First Name: ")
                 newlastname = input("Last Name: ")
@@ -45,7 +45,6 @@ class AddressBook:
                 newphone = input("Phone Number: ")
                 newemail = input("Email address: ")
 
-                #newcontact = Contact(newfirstname, newlastname, newcity, newstate, newzip, newphone, newemail)
                 contact.fullname = newfirstname + " "+ newlastname 
                 contact.city = newcity
                 contact.state = newstate
