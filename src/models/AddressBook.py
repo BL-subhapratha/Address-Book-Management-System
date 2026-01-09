@@ -27,4 +27,37 @@ class AddressBook:
             print(contact)
 
         return contacts
-        
+    
+    #UC3: Edit existing contact
+    def editContact(self, contacts):
+        editname = input("Enter the name you would like to edit details for: ")
+        found = False
+        for contact in contacts:
+            if contact.fullname == editname:
+                found = True
+                #print(f"----{contact.fullname}----{editname}----")
+                print("Enter new details of the contact:\n")
+                newfirstname = input("First Name: ")
+                newlastname = input("Last Name: ")
+                newcity = input("City: ")
+                newstate = input("State: ")
+                newzip = input("Zip: ")
+                newphone = input("Phone Number: ")
+                newemail = input("Email address: ")
+
+                #newcontact = Contact(newfirstname, newlastname, newcity, newstate, newzip, newphone, newemail)
+                contact.fullname = newfirstname + " "+ newlastname 
+                contact.city = newcity
+                contact.state = newstate
+                contact.zip = newzip
+                contact.phone = newphone
+                contact.email = newemail
+                break
+        if found == False:
+            print("Entered name not found in the records!")
+        else:
+            print("------------------------------------------------------------------------\n")
+            print("Records after editing...\n")
+            for c in contacts:
+                print(c)
+            
