@@ -60,4 +60,22 @@ class AddressBook:
             print("Records after editing...\n")
             for c in contacts:
                 print(c)
-            
+
+    #UC4: Delete person using name
+    def deleteContact(self, contacts):
+        delName = input("Enter the name you want to delete: ")
+        found = False
+        for contact in contacts:
+            if contact.fullname == delName:
+                found = True
+                print("Deleting the below details from the record...\n")
+                print(contact)
+                contacts.remove(contact)
+                break
+        if found == False:
+            print(f"{delName} is not found in the records!")
+        else:
+            print("----------------------------------------------------------------\n")
+            print("Records after deleting...\n")
+            for contact in contacts:
+                print(contact)
