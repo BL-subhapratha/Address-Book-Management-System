@@ -50,7 +50,7 @@ while True:
             search_person.search_person_by_city(searchcity)
         elif searchchoice == 2:
             searchstate = input("Enter the state name to search contacts: ")
-            search_person.search_person_by_state6(searchstate)
+            search_person.search_person_by_state(searchstate)
         else:
             print("Invalid choice!")
 

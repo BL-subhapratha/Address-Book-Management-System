@@ -4,6 +4,7 @@ class SearchPerson:
         self.address_books = address_books
 
     def search_person_by_city(self, city):
+        countcity = 0
         found = False
         print(f"\nPersons found in city: {city}\n")
 
@@ -14,11 +15,16 @@ class SearchPerson:
                     print(f"Address Book: {book_name}")
                     print(contact)
                     found = True
+                    countcity += 1
 
         if not found:
             print("No persons found in this city.")
+        else:
+            #UC10: number of contact persons by city
+            print(f"Total number of contacts found in city {city} is",countcity)
         
     def search_person_by_state(self, state):
+        countstate = 0
         found = False
         print(f"\nPersons found in state: {state}\n")
 
@@ -29,6 +35,10 @@ class SearchPerson:
                     print(f"Address Book: {book_name}")
                     print(contact)
                     found = True
+                    countstate += 1
 
         if not found:
             print("No persons found in this state.")
+        else:
+            #UC10: number of contact persons by state
+            print(f"Total number of contacts found in state {state} is",countstate)
