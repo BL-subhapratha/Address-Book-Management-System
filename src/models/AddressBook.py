@@ -2,12 +2,11 @@ from .ContactPerson import Contact
 
 class AddressBook:
     def __init__(self):
-        self.contact = []
+        self.contacts = []
     
     #UC2: Add contact to Address Book
     def addNewContact(self):
 
-        contacts = []
         #UC5: Add multiple person to address book
         numContact = int(input("Enter the number of contacts you would like to store: "))
         for i in range(numContact):
@@ -20,14 +19,19 @@ class AddressBook:
             newphone = input(f"{i+1} Phone Number: ")
             newemail = input(f"{i+1} Email ID: ")
 
-            self.contact = Contact(newfirstname, newlastname, newcity, newstate, newzip, newphone, newemail)
-            contacts.append(self.contact)
+            newcontact = Contact(newfirstname, newlastname, newcity, newstate, newzip, newphone, newemail)
+
+            #UC7: Check for duplicate contact
+            if any(c.first_name == newcontact.first_name for c in self.contacts):
+                print("Contact already exists!")
+            else:
+                self.contacts.append(newcontact)
 
         print("----------------------------------------------------------------------------")
-        for contact in contacts:
+        for contact in self.contacts:
             print(contact)
 
-        return contacts
+        return self.contacts
     
     #UC3: Edit existing contact
     def editContact(self, contacts):
