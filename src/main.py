@@ -16,7 +16,8 @@ while True:
     print("3. Edit Contact")
     print("4. Delete Contact")
     print("5. Search Person")
-    print("6. Exit")
+    print("6. Sort Persons")
+    print("7. Exit")
 
     choice = int(input("Enter choice: "))
 
@@ -55,6 +56,14 @@ while True:
             print("Invalid choice!")
 
     elif choice == 6:
+        book_name = input("Enter address book name: ")
+        if book_name in address_books:
+            contacts = address_books[book_name]
+            addressbook.sortPerson(contacts)
+        else:
+            print("Address book not found!\n")
+
+    elif choice == 7:
         break
 
     else:

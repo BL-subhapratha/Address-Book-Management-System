@@ -82,3 +82,9 @@ class AddressBook:
             print("Records after deleting...\n")
             for contact in contacts:
                 print(contact)
+
+    def sortPerson(self, contacts):
+        #UC11: Sort contacts by fullname
+        contacts.sort(key=lambda c: c.fullname)
+        for c in contacts:
+            print(c)
