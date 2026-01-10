@@ -10,6 +10,7 @@ class SearchPerson:
         for book_name, contacts in self.address_books.items():
             for contact in contacts:
                 if contact.city.lower() == city.lower():
+                    #UC9: View person by City
                     print(f"Address Book: {book_name}")
                     print(contact)
                     found = True
@@ -24,6 +25,7 @@ class SearchPerson:
         for book_name, contacts in self.address_books.items():
             for contact in contacts:
                 if contact.state.lower() == state.lower():
+                    #UC9: View person by State
                     print(f"Address Book: {book_name}")
                     print(contact)
                     found = True
