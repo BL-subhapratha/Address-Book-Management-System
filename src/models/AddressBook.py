@@ -1,4 +1,4 @@
-from ContactPerson import Contact
+from .ContactPerson import Contact
 
 class AddressBook:
     def __init__(self):
