@@ -2,11 +2,11 @@ from .AddressBook import AddressBook
 
 #UC6: Add multiple address book
 address_books = {}
-addressbook = AddressBook()
 
 def createAddressBook():
     book_name = input("\nEnter Address Book name: ")
 
+    addressbook = AddressBook()
     contacts = addressbook.addNewContact()
 
     address_books[book_name] = contacts

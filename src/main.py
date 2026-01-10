@@ -1,5 +1,6 @@
 from src.models.AddressBookMain import createAddressBook, displayAddressBooks
 from src.models.AddressBook import AddressBook
+from src.models.SearchPerson import SearchPerson
 #from models.ContactPerson import Contact
 
 
@@ -14,7 +15,8 @@ while True:
     print("2. Display Address Books")
     print("3. Edit Contact")
     print("4. Delete Contact")
-    print("5. Exit")
+    print("5. Search Person")
+    print("6. Exit")
 
     choice = int(input("Enter choice: "))
 
@@ -41,6 +43,18 @@ while True:
             print("Address book not found!\n")
 
     elif choice == 5:
+        search_person = SearchPerson(address_books)
+        searchchoice = int(input("Enter 1. to search by city or 2. to search by state: "))
+        if searchchoice == 1:
+            searchcity = input("Enter the city name to search contacts: ")
+            search_person.search_person_by_city(searchcity)
+        elif searchchoice == 2:
+            searchstate = input("Enter the state name to search contacts: ")
+            search_person.search_person_by_state6(searchstate)
+        else:
+            print("Invalid choice!")
+
+    elif choice == 6:
         break
 
     else:
