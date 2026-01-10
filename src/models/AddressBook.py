@@ -84,7 +84,19 @@ class AddressBook:
                 print(contact)
 
     def sortPerson(self, contacts):
-        #UC11: Sort contacts by fullname
-        contacts.sort(key=lambda c: c.fullname)
+        #UC12: sort contacts by city, state or zip
+        sortby = int(input("Enter the attribute by which you want to sort: \n1. Full Name\n2. City\n3. State\n4. Zip\n"))
+
+        match sortby:
+            case 1: 
+                #UC11: sort contacts by name
+                contacts.sort(key=lambda c: c.fullname)
+            case 2:
+                contacts.sort(key=lambda c: c.city)
+            case 3:
+                contacts.sort(key=lambda c: c.state)
+            case 4:
+                contacts.sort(key=lambda c: c.zip)
+        
         for c in contacts:
             print(c)
