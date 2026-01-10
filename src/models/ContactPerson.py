@@ -12,3 +12,9 @@ class Contact:
 
     def __str__(self):
         return f"Full Name: {self.fullname}\nAddress: {self.city}, {self.state}, {self.zip}\nPhone Number: {self.phone}\nEmail: {self.email}\n"
+    
+    #UC7: Check for duplicate contact in address book
+    def __eq__(self, other):
+        if not isinstance(other, Contact):
+            return False
+        return self.first_name.lower() == other.first_name.lower()

@@ -22,7 +22,7 @@ class AddressBook:
             newcontact = Contact(newfirstname, newlastname, newcity, newstate, newzip, newphone, newemail)
 
             #UC7: Check for duplicate contact
-            if any(c.first_name == newcontact.first_name for c in self.contacts):
+            if newcontact in self.contacts:
                 print("Contact already exists!")
             else:
                 self.contacts.append(newcontact)
