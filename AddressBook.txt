@@ -1,0 +1,10 @@
+
+Address Book: Family
+----------------------------------------
+Girija BS, Kumbakonam, TN, 9876, 876543345, girija@gmail.com
+Siva N, Vellore, TN, 6543, 7654323456, siva@gmail.com
+
+Address Book: Friends
+----------------------------------------
+Teja K, London, England, 654, 8765432345, teja@gmail.com
+Pavan Ram, Southamton, England, 76543, 654323456, pavan@gmail.com

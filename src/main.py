@@ -1,7 +1,7 @@
 from src.models.AddressBookMain import createAddressBook, displayAddressBooks
 from src.models.AddressBook import AddressBook
 from src.models.SearchPerson import SearchPerson
-#from models.ContactPerson import Contact
+from src.models.ContactPerson import Contact
 
 
 print("Welcome to Address Book Program!\n")
@@ -17,7 +17,8 @@ while True:
     print("4. Delete Contact")
     print("5. Search Person")
     print("6. Sort Persons")
-    print("7. Exit")
+    print("7. Read/Write to File")
+    print("8. Exit")
 
     choice = int(input("Enter choice: "))
 
@@ -64,6 +65,21 @@ while True:
             print("Address book not found!\n")
 
     elif choice == 7:
+        #UC13: Read or write address book into a file
+        filechoice = int(input("Enter 1. to read from file 2. write into file: "))
+        if filechoice == 1:
+            with open("AddressBook.txt") as rfile:
+                for line in rfile:
+                    print(line.strip())
+        else:
+            with open("AddressBook.txt","a") as wfile:
+                for book_name, contacts in address_books.items():
+                    wfile.write(f"\nAddress Book: {book_name}")
+                    wfile.write("-" * 40)
+                    for c in contacts:
+                        wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
+
+    elif choice == 8:
         break
 
     else:
