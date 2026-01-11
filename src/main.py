@@ -65,19 +65,33 @@ while True:
             print("Address book not found!\n")
 
     elif choice == 7:
-        #UC13: Read or write address book into a file
-        filechoice = int(input("Enter 1. to read from file 2. write into file: "))
-        if filechoice == 1:
-            with open("AddressBook.txt") as rfile:
-                for line in rfile:
-                    print(line.strip())
+        whatfile = int(input("Enter 1. for text file 2. for csv file: "))
+        if whatfile == 1:
+            #UC13: Read or write address book into a file
+            filechoice = int(input("Enter 1. to read from file 2. write into file: "))
+            if filechoice == 1:
+                with open("AddressBook.txt") as rfile:
+                    for line in rfile:
+                        print(line.strip())
+            else:
+                with open("AddressBook.txt","a") as wfile:
+                    for book_name, contacts in address_books.items():
+                        wfile.write(f"\nAddress Book: {book_name}")
+                        wfile.write("-" * 40)
+                        for c in contacts:
+                            wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
         else:
-            with open("AddressBook.txt","a") as wfile:
-                for book_name, contacts in address_books.items():
-                    wfile.write(f"\nAddress Book: {book_name}")
-                    wfile.write("-" * 40)
-                    for c in contacts:
-                        wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
+            #UC14: Read or write address book to csv file
+            filechoice = int(input("Enter 1. to read from file 2. write into file: "))
+            if filechoice == 1:
+                with open("AddressBook.csv") as rfile:
+                    for line in rfile:
+                        print(line.strip())
+            else:
+                with open("AddressBook.csv","a") as wfile:
+                    for book_name, contacts in address_books.items():
+                        for c in contacts:
+                            wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
 
     elif choice == 8:
         break
