@@ -1,3 +1,5 @@
+import json
+
 from src.models.AddressBookMain import createAddressBook, displayAddressBooks
 from src.models.AddressBook import AddressBook
 from src.models.SearchPerson import SearchPerson
@@ -65,7 +67,7 @@ while True:
             print("Address book not found!\n")
 
     elif choice == 7:
-        whatfile = int(input("Enter 1. for text file 2. for csv file: "))
+        whatfile = int(input("Enter 1. for text file 2. for csv file 3. for json file: "))
         if whatfile == 1:
             #UC13: Read or write address book into a file
             filechoice = int(input("Enter 1. to read from file 2. write into file: "))
@@ -80,7 +82,7 @@ while True:
                         wfile.write("-" * 40)
                         for c in contacts:
                             wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
-        else:
+        elif whatfile == 2:
             #UC14: Read or write address book to csv file
             filechoice = int(input("Enter 1. to read from file 2. write into file: "))
             if filechoice == 1:
@@ -92,6 +94,38 @@ while True:
                     for book_name, contacts in address_books.items():
                         for c in contacts:
                             wfile.write(f"{c.fullname}, {c.city}, {c.state}, {c.zip}, {c.phone}, {c.email}\n")
+
+        else:
+            filechoice = int(input("Enter 1. to read from file 2. write into file: "))
+            if filechoice == 1:
+                with open("AddressBook.json", "r") as rfile:
+                    data = json.load(rfile)
+
+                    for book_name, contacts in data.items():
+                        print(f"\nAddress Book: {book_name}")
+                        print("-" * 40)
+
+                        for c in contacts:
+                            print(f"{c['fullname']}, {c['city']}, {c['state']},{c['zip']}, {c['phone']}, {c['email']}")
+
+            else:
+                with open("AddressBook.json", "w") as wfile:
+                    data = {}
+
+                    for book_name, contacts in address_books.items():
+                        data[book_name] = []
+
+                        for c in contacts:
+                            data[book_name].append({
+                                "fullname": c.fullname,
+                                "city": c.city,
+                                "state": c.state,
+                                "zip": c.zip,
+                                "phone": c.phone,
+                                "email": c.email
+                            })
+
+                    json.dump(data, wfile, indent=4)
 
     elif choice == 8:
         break

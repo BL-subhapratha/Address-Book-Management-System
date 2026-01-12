@@ -1,0 +1,30 @@
+{
+    "Family": [
+        {
+            "fullname": "Girija BS",
+            "city": "Kumbakonam",
+            "state": "TN",
+            "zip": "876",
+            "phone": "86543234567",
+            "email": "girija@gmail.com"
+        },
+        {
+            "fullname": "Shiva N",
+            "city": "Vellore",
+            "state": "TN",
+            "zip": "6543",
+            "phone": "7654321234",
+            "email": "shiva@gmail.com"
+        }
+    ],
+    "College": [
+        {
+            "fullname": "Oussama H",
+            "city": "Morroco",
+            "state": "France",
+            "zip": "8765",
+            "phone": "7654322345",
+            "email": "oussama@gmail.com"
+        }
+    ]
+}
